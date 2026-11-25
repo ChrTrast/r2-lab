@@ -43,14 +43,14 @@
 | Windows 10/11 (64-bit) | `R2-Lab-Setup-1.10.0.exe` | διπλό κλικ και «Next» |
 | Ubuntu / Xubuntu | `r2-lab_1.10.0_all.deb` | `sudo apt install ./r2-lab_1.10.0_all.deb` |
 
+Κάθε νέα έκδοση αντικαθιστά την παλιά: εγκαθιστάς απλώς το νέο αρχείο, χωρίς να χρειάζεται απεγκατάσταση.
+
 ### Windows
 
 Ο installer βάζει το πρόγραμμα στο `Program Files\R2 Lab`, και προσθέτει εικονίδιο «Εργαστήρι R2» στο μενού Έναρξη
 και στην επιφάνεια εργασίας, καθώς και απεγκατάσταση (Ρυθμίσεις → Εφαρμογές). **Δεν χρειάζεται Python**:
 η Python και το pygame-ce είναι μέσα στο `R2Lab.exe`. Τα βήματα του installer είναι στα αγγλικά
 (το Inno Setup δεν έχει ελληνικά). Για αθόρυβη εγκατάσταση σε πολλά PC: `R2-Lab-Setup-1.10.0.exe /VERYSILENT`.
-Σε PC που έχει την παλιά έκδοση «Παιχνίδια Μάθησης», ο installer την αναβαθμίζει (μένει στον παλιό φάκελο
-`Program Files\Edu Games`) και σβήνει τα παλιά εικονίδια.
 
 Ο installer δεν έχει ψηφιακή υπογραφή, οπότε την πρώτη φορά τα Windows μπορεί να γράψουν
 «Τα Windows προστάτευσαν τον υπολογιστή σας». Πατάς **Περισσότερες πληροφορίες** και μετά **Εκτέλεση οπωσδήποτε**.
@@ -65,15 +65,12 @@ sudo apt install ./r2-lab_1.10.0_all.deb
 `python3-pygame` (θέλει internet την πρώτη φορά). Το πρόγραμμα μπαίνει στο `/opt/r2-lab` και στο μενού
 εφαρμογών, στην κατηγορία **Εκπαίδευση** («Εργαστήρι R2», στα αγγλικά «R2 Lab»). Ξεκινά και με την εντολή `r2-lab`
 (ή `r2-lab --window` για παράθυρο). Αφαίρεση: `sudo apt remove r2-lab`.
-Αν ο υπολογιστής είχε την παλιά εγκατάσταση με το `install.sh`, το πακέτο τη σβήνει πρώτα.
-Αν είχε την παλιά έκδοση «Παιχνίδια Μάθησης» (πακέτο `edu-games`), το apt την αφαιρεί μόνο του
-(γράφει ότι θα αφαιρέσει το `edu-games`: απαντάς «Y»).
 
 ### Πώς φτιάχνονται τα αρχεία του dist
 
 Πρώτα άλλαξε την έκδοση στο `core/__init__.py` (`__version__`), αν θέλεις νέο αριθμό.
 
-- **Windows:** διπλό κλικ στο `windows\build_exe.bat`, σε ένα PC με Python (όπως στο Sebran).
+- **Windows:** διπλό κλικ στο `windows\build_exe.bat`, σε ένα PC με Python.
   Το PyInstaller φτιάχνει το `build\windows\R2Lab\R2Lab.exe` και το Inno Setup
   (`winget install JRSoftware.InnoSetup`, μία φορά) φτιάχνει τον installer στο `dist\`.
 - **Ubuntu:** `py tools/make_deb.py` (ή `python3 tools/make_deb.py` στο Linux). Δεν χρειάζεται Linux
@@ -86,19 +83,14 @@ sudo apt install ./r2-lab_1.10.0_all.deb
 
 Κατεβάζεις τον κώδικα από το GitHub (πράσινο κουμπί **Code** → **Download ZIP**) και τον αποσυμπιέζεις.
 Στο Linux: `sudo apt install python3-pygame` και μετά `./start.sh`. Στα Windows: `start.bat` (δες παρακάτω).
-Υπάρχουν ακόμα τα παλιά `install.sh` / `uninstall.sh` και το `tools/package.py`, που φτιάχνει zip.
 
 ## Τι αποθηκεύεται
 
 Τίποτα. Ό,τι χτίζουν τα παιδιά στο ελεύθερο παιχνίδι των Κύβων δεν κρατιέται.
-Αν υπάρχει `cubes_patterns.json` από παλιότερη έκδοση (στο `%APPDATA%\edu-games\` ή στο
-`~/.config/edu-games/`), το παιχνίδι δεν το διαβάζει πια και ο φάκελος μπορεί να σβηστεί.
-Ο φάκελος κάθε χρήστη λέγεται πλέον `r2-lab` (`%APPDATA%\r2-lab\`, `~/.config/r2-lab/`).
 
 Μόνη εξαίρεση οι **Αποστολές Διάσωσης** στον υπολογιστή του δασκάλου: το `rescue_forest.json` στον φάκελο
 του χρήστη κρατά τις τάξεις (Δ1, Ε2, …) με τις πίστες που τελείωσε η καθεμιά, τις θέσεις των υπολογιστών στην
 αίθουσα και τις ρυθμίσεις του μαθήματος, ώστε κάθε τάξη να συνεχίζει στο επόμενο μάθημα από εκεί που έμεινε.
-(Το παλιό `rescue.json`, της προηγούμενης μορφής του παιχνιδιού, δεν διαβάζεται πια και μπορεί να σβηστεί.)
 
 Και τα τελειωμένα επίπεδα **δεν** αποθηκεύονται: κάθε φορά που ανοίγει το πρόγραμμα, τα παιχνίδια
 ξεκινούν από την πίστα 1 χωρίς αστέρια, ώστε το επόμενο παιδί να μη βρίσκει το παιχνίδι του
@@ -650,12 +642,12 @@ lazblocks) μέσα στον λαβύρινθο, ως τον **φορτιστή*
 | `core/paths.py` | Ο φάκελος κάθε χρήστη (`~/.config/r2-lab`, `%APPDATA%\r2-lab`). Σήμερα δεν γράφεται τίποτα εκεί. |
 | `start.bat` / `start.sh` | Ξεκίνημα χωρίς εγκατάσταση (Windows / Linux). |
 | `core/__init__.py` | Η έκδοση (`__version__`), που τη διαβάζουν ο installer και το `.deb`. |
-| `windows/build_exe.bat`, `windows/r2_lab.iss` | Ο installer των Windows (PyInstaller + Inno Setup), όπως στο Sebran. Το `.iss` μένει UTF-8 με BOM. |
+| `windows/build_exe.bat`, `windows/r2_lab.iss` | Ο installer των Windows (PyInstaller + Inno Setup). Το `.iss` μένει UTF-8 με BOM. |
 | `tools/make_deb.py` | Φτιάχνει το `dist/r2-lab_<έκδοση>_all.deb` για Ubuntu, χωρίς dpkg. |
 | `r2-lab.desktop` | Το όνομα και το εικονίδιο στο μενού εφαρμογών του Linux (μπαίνει στο `.deb`). |
-| `install.sh`, `uninstall.sh` | Η παλιά εγκατάσταση σε Ubuntu, χωρίς πακέτο. |
+| `install.sh`, `uninstall.sh` | Εγκατάσταση σε Linux χωρίς το πακέτο `.deb` (για προχωρημένους). |
 | `assets/r2-lab.png`, `.ico` | Το εικονίδιο: `.png` για το Linux, `.ico` για τα Windows (ξαναφτιάχνονται με `tools/make_icon.py`). |
-| `tools/package.py` | Φτιάχνει zip με όλο τον κώδικα (παλιός τρόπος μεταφοράς). |
+| `tools/package.py` | Φτιάχνει zip με όλο τον κώδικα. |
 | `tests/` | Έλεγχοι: `py -m unittest discover tests` (Linux: `python3 -m unittest discover tests`) |
 | `LICENSE`, `CONTRIBUTING.md` | Η άδεια (GPL-3.0) και πώς βοηθάει κάποιος στο πρόγραμμα. |
 | `docs/screenshots/`, `tools/screenshots.py` | Οι εικόνες της σελίδας στο GitHub και το script που τις ξαναβγάζει. |

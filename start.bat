@@ -1,5 +1,5 @@
 @echo off
-rem Starts the kids' games on Windows (same steps as Sebran's run_sebran.bat).
+rem Starts R2 Lab on Windows without installing it.
 rem Needs Python from python.org ("Add python.exe to PATH" ticked).
 rem Installs pygame-ce by itself: the maintained pygame fork with wheels for Python 3.10-3.15.
 cd /d "%~dp0"

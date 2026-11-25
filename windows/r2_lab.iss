@@ -4,7 +4,7 @@
 ; Είσοδος: ..\build\windows\R2Lab\  (το φτιάχνει το PyInstaller)
 ; Έξοδος:  ..\dist\R2-Lab-Setup-<έκδοση>.exe
 ; Το αρχείο πρέπει να μένει UTF-8 με BOM, αλλιώς τα ελληνικά βγαίνουν λάθος.
-; Το Inno Setup δεν έχει ελληνικά, οπότε τα βήματα του installer είναι στα αγγλικά (όπως στο Sebran).
+; Το Inno Setup δεν έχει ελληνικά, οπότε τα βήματα του installer είναι στα αγγλικά.
 
 #ifndef AppVer
   #define AppVer "1.10.0"

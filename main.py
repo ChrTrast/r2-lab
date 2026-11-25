@@ -13,7 +13,7 @@ sys.path.insert(0, HERE)
 os.environ.setdefault("PYGAME_HIDE_SUPPORT_PROMPT", "1")
 
 if sys.platform.startswith("win"):
-    # Όπως στο Sebran: καθαρή εικόνα σε οθόνες με κλιμάκωση 125% / 150% / 200%,
+    # Καθαρή εικόνα σε οθόνες με κλιμάκωση 125% / 150% / 200%,
     # και παράθυρο που χωράει στην οθόνη (αλλιώς τα Windows το μεγεθύνουν θολά).
     try:
         import ctypes

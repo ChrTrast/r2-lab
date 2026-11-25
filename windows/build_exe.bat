@@ -1,7 +1,7 @@
 @echo off
 rem R2 Lab - builds dist\R2-Lab-Setup-<version>.exe, the installer for Windows 10/11.
 rem The installed program needs no Python: PyInstaller puts Python and pygame-ce inside R2Lab.exe.
-rem Same steps as Sebran's build_exe.bat. Run it on a 64-bit Windows PC that has Python.
+rem Run it on a 64-bit Windows PC that has Python.
 rem Needs Inno Setup once:  winget install JRSoftware.InnoSetup
 cd /d "%~dp0\.."
 set PY=
