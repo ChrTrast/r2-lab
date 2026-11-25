@@ -1,0 +1,11 @@
+# Αλλαγές γραμμής: LF παντού, για να τρέχουν τα .sh στο Linux όπως κι αν κατέβει ο κώδικας.
+* text=auto eol=lf
+# Τα αρχεία .bat θέλουν CRLF στα Windows.
+*.bat text eol=crlf
+
+# Αρχεία που δεν είναι κείμενο
+*.png binary
+*.ico binary
+*.pdf binary
+*.exe binary
+*.deb binary

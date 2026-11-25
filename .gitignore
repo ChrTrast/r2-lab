@@ -1,0 +1,25 @@
+# Αρχεία που ΔΕΝ ανεβαίνουν στο GitHub.
+
+# Python: προσωρινά αρχεία που ξαναφτιάχνονται μόνα τους
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Τα installers και τα ενδιάμεσα αρχεία τους.
+# Τα .exe / .deb ανεβαίνουν στη σελίδα «Releases» του GitHub, όχι μέσα στον κώδικα.
+build/
+dist/
+*.spec
+
+# Τα φύλλα εργασίας του R2 (δεν τα χρησιμοποιεί το πρόγραμμα)
+assets/Ola_ta_fylla_ergasias_R2.pdf
+
+# Ρυθμίσεις επεξεργαστών κειμένου και συστήματος
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+desktop.ini
+.DS_Store

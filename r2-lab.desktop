@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=R2 Lab
+Name[el]=Εργαστήρι R2
+GenericName=Robotics and learning games for children
+GenericName[el]=Παιχνίδια ρομποτικής και μάθησης για παιδιά
+Comment=Logic, robotics and learning games for young children, with the robot R2
+Comment[el]=Παιχνίδια λογικής, ρομποτικής και μάθησης για μικρά παιδιά, με το ρομπότ R2
+Exec=r2-lab
+Icon=r2-lab
+Terminal=false
+Categories=Education;Game;KidsGame;
+Keywords=kids;robot;robotics;R2;line;cubes;maze;puzzle;παιδιά;ρομπότ;ρομποτική;κύβοι;λαβύρινθος;
